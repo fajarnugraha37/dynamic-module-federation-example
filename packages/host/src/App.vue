@@ -9,7 +9,7 @@
                     <h3>
                         You've successfully created a project with
                         <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
-                        <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
+                        <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 2</a>.
                     </h3>
                 </div>
 
@@ -21,7 +21,10 @@
         </header>
 
         <div class="container">
-            <h1>Hiii</h1>
+
+            <h1 class="text-3xl font-bold underline">
+                Hello world!
+            </h1>
         </div>
     </body>
 </template>
