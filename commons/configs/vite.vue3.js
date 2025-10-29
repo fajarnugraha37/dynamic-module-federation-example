@@ -6,6 +6,7 @@ import { createHtmlPlugin } from 'vite-plugin-html'
 import { compression } from 'vite-plugin-compression2'
 import { VitePWA } from 'vite-plugin-pwa'
 import autoprefixer from 'autoprefixer'
+import tailwindcss from '@tailwindcss/vite'
 
 
 export const viteVue3Config = (__dirname) => defineConfig({
@@ -16,6 +17,9 @@ export const viteVue3Config = (__dirname) => defineConfig({
     },
 
     plugins: [
+        // Tailwind CSS integration
+        tailwindcss(),
+        
         // Vue 3 support
         vue({
             template: {

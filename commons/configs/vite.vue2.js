@@ -5,6 +5,7 @@ import legacy from '@vitejs/plugin-legacy'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import { compression } from 'vite-plugin-compression2'
 import autoprefixer from 'autoprefixer'
+import tailwindcss from '@tailwindcss/vite'
 
 
 export const viteVue2Config = (__dirname) => defineConfig({
@@ -15,6 +16,9 @@ export const viteVue2Config = (__dirname) => defineConfig({
     },
 
     plugins: [
+        // Tailwind CSS integration
+        tailwindcss(),
+        
         // Vue 2 support
         createVuePlugin({
             jsx: true,

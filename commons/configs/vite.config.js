@@ -6,6 +6,7 @@ import { createHtmlPlugin } from 'vite-plugin-html'
 import { visualizer } from 'rollup-plugin-visualizer'
 import { compression } from 'vite-plugin-compression2'
 import { federation } from '@module-federation/vite'
+import tailwindcss from '@tailwindcss/vite'
 
 
 export const viteConfig = (__dirname) => defineConfig({
@@ -16,6 +17,9 @@ export const viteConfig = (__dirname) => defineConfig({
     },
 
     plugins: [
+        // Tailwind CSS integration
+        tailwindcss(),
+
         // Vue 3 support
         vue({
             template: {

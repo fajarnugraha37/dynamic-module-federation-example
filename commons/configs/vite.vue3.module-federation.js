@@ -8,6 +8,7 @@ import { compression } from 'vite-plugin-compression2'
 import { VitePWA } from 'vite-plugin-pwa'
 import { visualizer } from 'rollup-plugin-visualizer'
 import autoprefixer from 'autoprefixer'
+import tailwindcss from '@tailwindcss/vite'
 
 
 export const viteVue3ConfigModuleFederation = (__dirname) => defineConfig({
@@ -18,6 +19,9 @@ export const viteVue3ConfigModuleFederation = (__dirname) => defineConfig({
     },
 
     plugins: [
+        // Tailwind CSS integration
+        tailwindcss(),
+        
         // Vue 3 support
         vue({
             template: {

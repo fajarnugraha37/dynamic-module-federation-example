@@ -26,8 +26,10 @@
     "type-check:mf": "tsc --noEmit -p tsconfig.module-federation.json"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.16",
     "@vue/composition-api": "^1.7.2",
-    "element-ui": "^2.15.14"
+    "element-ui": "^2.15.14",
+    "tailwindcss": "^4.1.16"
   },
   "devDependencies": {},
   "peerDependencies": {},
