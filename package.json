@@ -11,7 +11,7 @@
     "build:all": "bun run --filter './packages/*' build",
     "build:copy": "bun run build:all && bun run copy:dist",
     "preview:all": "bun run --filter './packages/*' preview",
-    "serve": "bun run build:copy && serve dist/ -l 5000",
+    "serve": "bun run build:copy && serve",
     "copy:dist": "bash copy-dist.sh",
     "copy:dist:ps": "powershell -ExecutionPolicy Bypass -File copy-dist.ps1",
     "copy:dist:bat": "copy-dist.bat"
