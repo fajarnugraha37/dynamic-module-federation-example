@@ -8,7 +8,7 @@ export default ({ mode }) => {
 
     return defineConfig({
         ...baseConfig,
-        base: VITE_BASE_URL,
+        base: '/host',
         server: {
             ...baseConfig.server,
             port: VITE_PORT || 5173,

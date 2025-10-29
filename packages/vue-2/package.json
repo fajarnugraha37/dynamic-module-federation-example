@@ -1,5 +1,5 @@
 {
-  "name": "@packages/vue3",
+  "name": "@packages/vue-2",
   "module": "index.ts",
   "type": "module",
   "private": true,
@@ -8,19 +8,19 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
-  },
   "dependencies": {
     "@commons/configs": "workspace:*",
     "@commons/components": "workspace:*",
     "@commons/ui": "workspace:*",
     "qiankun": "^2.10.16",
-    "vue": "^3.5.22",
-    "vue-router": "^4.6.3",
-    "vuex": "^4.1.0"
+    "vue": "2.7.16",
+    "vue-router": "2.8.1",
+    "vuex": "3.6.2"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
   }
 }
