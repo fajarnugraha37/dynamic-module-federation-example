@@ -20,6 +20,7 @@ export default ({ mode }) => {
                 clientFiles: ['./index.html', './src/{views,components}/*'],
             },
         },
+
         resolve: {
             alias: {
                 '@': resolve(__dirname, 'src'),
@@ -33,6 +34,18 @@ export default ({ mode }) => {
                     },
                     math: 'strict',
                     javascriptEnabled: true,
+                },
+            },
+        },
+        build: {
+            target: 'es2015',
+            sourcemap: false,
+            chunkSizeWarningLimit: 4000,
+            rollupOptions: {
+                output: {
+                    entryFileNames: 'static/js/[name]-[hash].js',
+                    chunkFileNames: 'static/js/[name]-[hash].js',
+                    assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
                 },
             },
         },
