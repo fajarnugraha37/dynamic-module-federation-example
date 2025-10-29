@@ -6,9 +6,14 @@ import legacy from '@vitejs/plugin-legacy'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import { compression } from 'vite-plugin-compression2'
 
-const __dirname = import.meta.dirname;
 
-export const viteVue2ConfigModuleFederation = defineConfig({
+export const viteVue2ConfigModuleFederation = (__dirname) => defineConfig({
+    esbuild: {
+        supported: {
+            'top-level-await': true //browsers can handle top-level-await features
+        },
+    },
+    
     plugins: [
         // Vue 2 support
         createVuePlugin({
@@ -61,8 +66,14 @@ export const viteVue2ConfigModuleFederation = defineConfig({
         // Legacy browser support
         legacy({
             targets: ['> 1%', 'last 2 versions', 'not dead', 'ie >= 11'],
-            additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
-            modernPolyfills: ['es.promise.finally'],
+            // additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
+            // renderLegacyChunks: true,
+            modernPolyfills: [
+                'es.symbol',
+                'es.array.filter',
+                'es.promise',
+                'es.promise.finally',
+            ],
         }),
 
         // HTML template processing
@@ -104,10 +115,10 @@ export const viteVue2ConfigModuleFederation = defineConfig({
     // Path resolution
     resolve: {
         alias: {
-            '@': resolve(__dirname, '../../src'),
-            '@commons': resolve(__dirname, '../'),
-            '@components': resolve(__dirname, '../components'),
-            '@ui': resolve(__dirname, '../ui'),
+            '@': resolve(__dirname, 'src'),
+            // '@commons': resolve(import.meta.dirname, '../'),
+            // '@components': resolve(import.meta.dirname, '../components'),
+            // '@ui': resolve(import.meta.dirname, '../ui'),
             'vue': 'vue/dist/vue.esm.js',
         },
         extensions: ['.js', '.ts', '.vue', '.json'],
@@ -121,7 +132,7 @@ export const viteVue2ConfigModuleFederation = defineConfig({
         sourcemap: process.env.NODE_ENV !== 'production',
 
         rollupOptions: {
-            input: resolve(__dirname, '../../index.html'),
+            input: resolve(__dirname, 'index.html'),
             output: {
                 // Module Federation compatible output
                 entryFileNames: 'assets/js/[name]-[hash].js',

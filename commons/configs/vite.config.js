@@ -7,9 +7,14 @@ import { visualizer } from 'rollup-plugin-visualizer'
 import { compression } from 'vite-plugin-compression2'
 import { federation } from '@module-federation/vite'
 
-const __dirname = import.meta.dirname;
 
-export const viteConfig = defineConfig({
+export const viteConfig = (__dirname) => defineConfig({
+    esbuild: {
+        supported: {
+            'top-level-await': true //browsers can handle top-level-await features
+        },
+    },
+
     plugins: [
         // Vue 3 support
         vue({
@@ -27,8 +32,8 @@ export const viteConfig = defineConfig({
             name: 'vue3-app',
             filename: 'remoteEntry.js',
             exposes: {
-                './App': './src/App.vue',
-                './components': './src/components/index.ts',
+                // './App': './src/App.vue',
+                // './components': './src/components/index.ts',
             },
             shared: {
                 vue: {
@@ -118,10 +123,10 @@ export const viteConfig = defineConfig({
     // Path resolution
     resolve: {
         alias: {
-            '@': resolve(__dirname, '../../src'),
-            '@commons': resolve(__dirname, '../'),
-            '@components': resolve(__dirname, '../components'),
-            '@ui': resolve(__dirname, '../ui'),
+            '@': resolve(__dirname, 'src'),
+            // '@commons': resolve(__dirname, '../'),
+            // '@components': resolve(__dirname, '../components'),
+            // '@ui': resolve(__dirname, '../ui'),
             'vue': 'vue/dist/vue.esm-bundler.js',
         },
         extensions: ['.js', '.ts', '.vue', '.json'],
@@ -164,6 +169,7 @@ export const viteConfig = defineConfig({
 
         // Rollup options for advanced optimization
         rollupOptions: {
+            input: resolve(__dirname, 'index.html'),
             input: {
                 main: resolve(__dirname, '../../index.html'),
             },

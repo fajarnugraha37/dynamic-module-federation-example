@@ -9,9 +9,14 @@ import { VitePWA } from 'vite-plugin-pwa'
 import { visualizer } from 'rollup-plugin-visualizer'
 import autoprefixer from 'autoprefixer'
 
-const __dirname = import.meta.dirname;
 
-export const viteVue3ConfigModuleFederation = defineConfig({
+export const viteVue3ConfigModuleFederation = (__dirname) => defineConfig({
+    esbuild: {
+        supported: {
+            'top-level-await': true //browsers can handle top-level-await features
+        },
+    },
+
     plugins: [
         // Vue 3 support
         vue({
@@ -167,10 +172,10 @@ export const viteVue3ConfigModuleFederation = defineConfig({
     // Path resolution
     resolve: {
         alias: {
-            '@': resolve(__dirname, '../../src'),
-            '@commons': resolve(__dirname, '../'),
-            '@components': resolve(__dirname, '../components'),
-            '@ui': resolve(__dirname, '../ui'),
+            '@': resolve(__dirname, 'src'),
+            // '@commons': resolve(__dirname, '../'),
+            // '@components': resolve(__dirname, '../components'),
+            // '@ui': resolve(__dirname, '../ui'),
             'vue': 'vue/dist/vue.esm-bundler.js',
         },
         extensions: ['.js', '.ts', '.vue', '.json'],
@@ -184,7 +189,7 @@ export const viteVue3ConfigModuleFederation = defineConfig({
         sourcemap: process.env.NODE_ENV !== 'production',
 
         rollupOptions: {
-            input: resolve(__dirname, '../../index.html'),
+            input: resolve(__dirname, 'index.html'),
             output: {
                 // Module Federation compatible output
                 entryFileNames: 'assets/js/[name]-[hash].js',

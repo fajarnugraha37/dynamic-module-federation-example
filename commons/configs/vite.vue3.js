@@ -8,9 +8,13 @@ import { VitePWA } from 'vite-plugin-pwa'
 import autoprefixer from 'autoprefixer'
 
 
-const __dirname = import.meta.dirname;
+export const viteVue3Config = (__dirname) => defineConfig({
+    esbuild: {
+        supported: {
+            'top-level-await': true //browsers can handle top-level-await features
+        },
+    },
 
-export const viteVue3Config = defineConfig({
     plugins: [
         // Vue 3 support
         vue({
@@ -62,10 +66,10 @@ export const viteVue3Config = defineConfig({
     // Path resolution
     resolve: {
         alias: {
-            '@': resolve(__dirname, '../../src'),
-            '@commons': resolve(__dirname, '../'),
-            '@components': resolve(__dirname, '../components'),
-            '@ui': resolve(__dirname, '../ui'),
+            '@': resolve(__dirname, 'src'),
+            // '@commons': resolve(__dirname, '../'),
+            // '@components': resolve(__dirname, '../components'),
+            // '@ui': resolve(__dirname, '../ui'),
             'vue': 'vue/dist/vue.esm-bundler.js',
         },
         extensions: ['.js', '.ts', '.vue', '.json'],
@@ -104,7 +108,7 @@ export const viteVue3Config = defineConfig({
 
         // Qiankun specific rollup options
         rollupOptions: {
-            input: resolve(__dirname, '../../index.html'),
+            input: resolve(__dirname, 'index.html'),
             output: {
                 // UMD format for qiankun compatibility
                 format: 'umd',
