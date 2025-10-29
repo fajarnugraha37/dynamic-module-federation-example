@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import { createVuePlugin } from 'vite-plugin-vue2'
 import { resolve } from 'path'
-import { federation } from '@module-federation/vite'
+import federation from '@originjs/vite-plugin-federation'
 import legacy from '@vitejs/plugin-legacy'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import { compression } from 'vite-plugin-compression2'
