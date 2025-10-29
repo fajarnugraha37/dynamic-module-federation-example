@@ -1,8 +1,19 @@
+<script>
+import svg from '@commons/ui/assets/logo.svg';
+export default {
+    name: 'App',
+    data() {
+        return {
+            svg,
+        };
+    },
+};
+</script>
 <template>
 
     <body>
         <header>
-            <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+            <img alt="Vue logo" class="logo" :src="svg" width="125" height="125" />
 
             <div class="wrapper">
                 <div class="greetings">
