@@ -46,6 +46,21 @@ export const viteVue3ConfigModuleFederation = (__dirname) => defineConfig({
                     entry: "http://[...]/remoteEntry.js",
                 },
                 var_remote: "var_remote@http://[...]/remoteEntry.js",
+                // Define remote applications
+                // shell: {
+                //     type: 'module',
+                //     name: 'shell',
+                //     entry: 'http://localhost:3000/remoteEntry.js',
+                //     entryGlobalName: 'shell',
+                //     shareScope: 'default',
+                // },
+                // utils: {
+                //     type: 'module',
+                //     name: 'utils',
+                //     entry: 'http://localhost:3001/remoteEntry.js',
+                //     entryGlobalName: 'utils',
+                //     shareScope: 'default',
+                // },
             },
             exposes: {
                 // './App': './src/App.vue',
@@ -54,23 +69,6 @@ export const viteVue3ConfigModuleFederation = (__dirname) => defineConfig({
                 // './utils': './src/utils/index.ts',
                 // './store': './src/stores/index.ts',
                 // './composables': './src/composables/index.ts',
-            },
-            remotes: {
-                // Define remote applications
-                shell: {
-                    type: 'module',
-                    name: 'shell',
-                    entry: 'http://localhost:3000/remoteEntry.js',
-                    entryGlobalName: 'shell',
-                    shareScope: 'default',
-                },
-                utils: {
-                    type: 'module',
-                    name: 'utils',
-                    entry: 'http://localhost:3001/remoteEntry.js',
-                    entryGlobalName: 'utils',
-                    shareScope: 'default',
-                },
             },
             shared: {
                 vue: {
