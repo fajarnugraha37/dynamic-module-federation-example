@@ -4,9 +4,7 @@
   "type": "module",
   "private": true,
   "dependencies": {
-    "@commons/configs": "workspace:*",
-    "@commons/components": "workspace:*",
-    "@commons/ui": "workspace:*"
+    "@commons/configs": "workspace:*"
   },
   "devDependencies": {
     "@types/bun": "latest"

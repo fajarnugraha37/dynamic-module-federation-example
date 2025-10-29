@@ -14,8 +14,7 @@
   },
   "dependencies": {
     "@commons/configs": "workspace:*",
-    "@commons/components": "workspace:*",
-    "@commons/ui": "workspace:*"
+    "@commons/components": "workspace:*"
   },
   "devDependencies": {
     "@types/bun": "latest"
