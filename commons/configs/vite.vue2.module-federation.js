@@ -31,16 +31,23 @@ export const viteVue2ConfigModuleFederation = (__dirname) => defineConfig({
         federation({
             name: 'vue2MicroApp',
             filename: 'remoteEntry.js',
+            manifest: true,
+            remotes: {
+                esm_remote: {
+                    type: "module",
+                    name: "esm_remote",
+                    entry: "http://[...]/remoteEntry.js",
+                },
+                var_remote: "var_remote@http://[...]/remoteEntry.js",
+                // Define remote applications
+                // shell: 'shell@http://localhost:3000/remoteEntry.js',
+                // utils: 'utils@http://localhost:3001/remoteEntry.js',
+            },
             exposes: {
                 // './App': './src/App.vue',
                 // './Button': './src/components/Button.vue',
                 // './utils': './src/utils/index.js',
                 // './store': './src/store/index.js',
-            },
-            remotes: {
-                // Define remote applications
-                shell: 'shell@http://localhost:3000/remoteEntry.js',
-                utils: 'utils@http://localhost:3001/remoteEntry.js',
             },
             shared: {
                 vue: {

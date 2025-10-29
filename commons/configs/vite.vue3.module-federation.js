@@ -38,6 +38,15 @@ export const viteVue3ConfigModuleFederation = (__dirname) => defineConfig({
         federation({
             name: 'vue3MicroApp',
             filename: 'remoteEntry.js',
+                manifest: true,
+            remotes: {
+                esm_remote: {
+                    type: "module",
+                    name: "esm_remote",
+                    entry: "http://[...]/remoteEntry.js",
+                },
+                var_remote: "var_remote@http://[...]/remoteEntry.js",
+            },
             exposes: {
                 // './App': './src/App.vue',
                 // './Button': './src/components/Button.vue',
