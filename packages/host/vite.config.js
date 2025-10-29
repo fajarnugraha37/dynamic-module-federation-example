@@ -1,14 +1,14 @@
 import { defineConfig, loadEnv } from 'vite';
-import { viteVue2ConfigModuleFederation as baseConfig } from '@commons/configs/vite.vue2.module-federation';
+import { viteVue2ConfigModuleFederation as configFunc } from '@commons/configs/vite.vue2.module-federation';
 import { resolve } from 'path';
 
 export default ({ mode }) => {
     const { VITE_PORT, VITE_BASE_URL } = loadEnv(mode, process.cwd());
+    const baseConfig = configFunc(import.meta.dirname);
 
     return defineConfig({
-        base: VITE_BASE_URL,
         ...baseConfig,
-
+        base: VITE_BASE_URL,
         server: {
             ...baseConfig.server,
             port: VITE_PORT || 5173,
@@ -20,7 +20,6 @@ export default ({ mode }) => {
                 clientFiles: ['./index.html', './src/{views,components}/*'],
             },
         },
-
         resolve: {
             alias: {
                 '@': resolve(__dirname, 'src'),
@@ -34,18 +33,6 @@ export default ({ mode }) => {
                     },
                     math: 'strict',
                     javascriptEnabled: true,
-                },
-            },
-        },
-        build: {
-            target: 'es2015',
-            sourcemap: false,
-            chunkSizeWarningLimit: 4000,
-            rollupOptions: {
-                output: {
-                    entryFileNames: 'static/js/[name]-[hash].js',
-                    chunkFileNames: 'static/js/[name]-[hash].js',
-                    assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
                 },
             },
         },
