@@ -6,7 +6,11 @@
     "packages/*",
     "commons/*"
   ],
-  "scripts": {},
+  "scripts": {
+    "dev:all": "bun run --filter './packages/*' dev",
+    "build:all": "bun run --filter './packages/*' build",
+    "preview:all": "bun run --filter './packages/*' preview"
+  },
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^7.0.2",
     "@module-federation/vite": "^1.9.0",

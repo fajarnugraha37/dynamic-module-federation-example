@@ -4,13 +4,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "bun run ./index.ts --watch"
-  },
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@commons/configs": "workspace:*",
@@ -20,5 +16,11 @@
     "vue": "2.7.16",
     "vue-router": "2.8.1",
     "vuex": "3.6.2"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
   }
 }
