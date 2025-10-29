@@ -105,7 +105,7 @@ export const viteVue3Config = (__dirname) => defineConfig({
 
     // Build configuration for Qiankun
     build: {
-        target: 'esnext',
+        target: 'es2015',
         outDir: 'dist',
         assetsDir: 'static',
         sourcemap: process.env.NODE_ENV !== 'production',
@@ -215,8 +215,8 @@ export const viteVue3Config = (__dirname) => defineConfig({
     envPrefix: ['VITE_', 'VUE_APP_'],
 
     // ESBuild configuration for Vue 3
-    esbuild: {
-        target: 'esnext',
-        drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
-    },
+    // esbuild: {
+    //     target: 'esnext',
+    //     drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
+    // },
 })

@@ -23,6 +23,10 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.16",
+    "@vue/shared": "^3.5.22",
+    "ant-design-vue": "^4.2.6",
+    "element-plus": "^2.11.5",
+    "pinia": "^3.0.3",
     "qiankun": "^2.10.16",
     "tailwindcss": "^4.1.16"
   },

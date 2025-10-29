@@ -194,7 +194,7 @@ export const viteVue3ConfigModuleFederation = (__dirname) => defineConfig({
 
     // Build configuration optimized for Module Federation
     build: {
-        target: 'esnext',
+        target: 'es2015',
         outDir: 'dist',
         assetsDir: 'assets',
         sourcemap: process.env.NODE_ENV !== 'production',
@@ -240,6 +240,9 @@ export const viteVue3ConfigModuleFederation = (__dirname) => defineConfig({
             },
         },
 
+        // CSS code splitting
+        cssCodeSplit: true,
+
         // Enhanced minification for Module Federation
         minify: 'terser',
         terserOptions: {
@@ -281,9 +284,6 @@ export const viteVue3ConfigModuleFederation = (__dirname) => defineConfig({
                         'not dead',
                     ],
                 }),
-                require('cssnano')({
-                    preset: 'advanced',
-                }),
             ],
         },
     },
@@ -317,9 +317,9 @@ export const viteVue3ConfigModuleFederation = (__dirname) => defineConfig({
     envPrefix: ['VITE_', 'VUE_APP_', 'MF_'],
 
     // Enhanced ESBuild configuration
-    esbuild: {
-        target: 'esnext',
-        drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
-        legalComments: 'none',
-    },
+    // esbuild: {
+    //     target: 'esnext',
+    //     drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
+    //     legalComments: 'none',
+    // },
 })
