@@ -7,6 +7,7 @@
   "private": true,
   "main": "index.ts",
   "exports": {
+    "./postcss.config": "./postcss.config.js",
     "./vite.vue2": "./vite.vue2.js",
     "./vite.vue3": "./vite.vue3.js",
     "./vite.vue2.module-federation": "./vite.vue2.module-federation.js",
