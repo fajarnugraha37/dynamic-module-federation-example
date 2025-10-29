@@ -9,12 +9,12 @@
   "scripts": {
     "dev:all": "bun run --filter './packages/*' dev",
     "build:all": "bun run --filter './packages/*' build",
-    "build:copy": "bun run build:all && bun run copy:dist",
     "preview:all": "bun run --filter './packages/*' preview",
-    "serve": "bun run build:copy && serve",
+    "build:copy": "bun run build:all && bun run copy:dist",
     "copy:dist": "bash copy-dist.sh",
     "copy:dist:ps": "powershell -ExecutionPolicy Bypass -File copy-dist.ps1",
-    "copy:dist:bat": "copy-dist.bat"
+    "copy:dist:bat": "copy-dist.bat",
+    "serve": "bun run build:copy && serve"
   },
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^7.0.2",
