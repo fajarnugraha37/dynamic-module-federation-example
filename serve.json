@@ -1,0 +1,7 @@
+{
+  "public": "dist",
+  "redirects": [
+    { "source": "", "destination": "/host/index.html" },
+    { "source": "/", "destination": "/host/index.html" }
+  ]
+}
