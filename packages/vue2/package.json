@@ -13,6 +13,9 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "@commons/configs": "workspace:*",
+    "@commons/components": "workspace:*",
+    "@commons/ui": "workspace:*",
     "qiankun": "^2.10.16",
     "vue": "2.7.16",
     "vue-router": "2.8.1",

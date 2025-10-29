@@ -37,6 +37,11 @@
     },
     "commons/components": {
       "name": "@commons/components",
+      "dependencies": {
+        "@commons/components": "workspace:*",
+        "@commons/configs": "workspace:*",
+        "@commons/ui": "workspace:*",
+      },
       "devDependencies": {
         "@types/bun": "latest",
       },
@@ -58,6 +63,11 @@
     },
     "commons/ui": {
       "name": "@commons/ui",
+      "dependencies": {
+        "@commons/components": "workspace:*",
+        "@commons/configs": "workspace:*",
+        "@commons/ui": "workspace:*",
+      },
       "devDependencies": {
         "@types/bun": "latest",
       },
@@ -69,6 +79,7 @@
       "name": "@packages/host",
       "dependencies": {
         "@commons/components": "workspace:*",
+        "@commons/configs": "workspace:*",
         "@commons/ui": "workspace:*",
         "@module-federation/vite": "^1.9.0",
         "vue": "2.7.16",
@@ -85,6 +96,9 @@
     "packages/vue2": {
       "name": "@packages/vue2",
       "dependencies": {
+        "@commons/components": "workspace:*",
+        "@commons/configs": "workspace:*",
+        "@commons/ui": "workspace:*",
         "qiankun": "^2.10.16",
         "vue": "2.7.16",
         "vue-router": "2.8.1",
@@ -100,6 +114,9 @@
     "packages/vue3": {
       "name": "@packages/vue3",
       "dependencies": {
+        "@commons/components": "workspace:*",
+        "@commons/configs": "workspace:*",
+        "@commons/ui": "workspace:*",
         "qiankun": "^2.10.16",
         "vue": "^3.5.22",
         "vue-router": "^4.6.3",
