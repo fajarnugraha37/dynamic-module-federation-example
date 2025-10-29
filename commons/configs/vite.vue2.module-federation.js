@@ -23,10 +23,10 @@ export const viteVue2ConfigModuleFederation = defineConfig({
             name: 'vue2MicroApp',
             filename: 'remoteEntry.js',
             exposes: {
-                './App': './src/App.vue',
-                './Button': './src/components/Button.vue',
-                './utils': './src/utils/index.js',
-                './store': './src/store/index.js',
+                // './App': './src/App.vue',
+                // './Button': './src/components/Button.vue',
+                // './utils': './src/utils/index.js',
+                // './store': './src/store/index.js',
             },
             remotes: {
                 // Define remote applications

@@ -9,8 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@commons/configs": "workspace:*",
     "@commons/components": "workspace:*",
+    "@commons/configs": "workspace:*",
     "@commons/ui": "workspace:*",
     "@module-federation/vite": "^1.9.0",
     "vue": "2.7.16",

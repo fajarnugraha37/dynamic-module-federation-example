@@ -1,5 +1,5 @@
 import { defineConfig, loadEnv } from 'vite';
-import { viteVue2Config as baseConfig } from '@commons/configs/vite.vue2';
+import { viteVue2ConfigModuleFederation as baseConfig } from '@commons/configs/vite.vue2.module-federation';
 import { resolve } from 'path';
 
 export default ({ mode }) => {

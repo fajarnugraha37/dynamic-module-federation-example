@@ -26,11 +26,11 @@
     "type-check:mf": "tsc --noEmit -p tsconfig.module-federation.json"
   },
   "dependencies": {
+    "@vue/composition-api": "^1.7.2",
+    "element-ui": "^2.15.14"
   },
-  "devDependencies": {
-  },
-  "peerDependencies": {
-  },
+  "devDependencies": {},
+  "peerDependencies": {},
   "optionalDependencies": {
     "@fullhuman/postcss-purgecss": "^6.0.0",
     "postcss-combine-media-query": "^1.0.1",
