@@ -1,0 +1,44 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    // Vue 2 specific overrides
+    "jsx": "preserve",
+    "lib": ["ES2015", "DOM", "DOM.Iterable"],
+    "target": "ES2015",
+    
+    // Vue 2 types
+    "types": [
+      "vite/client",
+      "vue/types/vue",
+      "@vue/composition-api"
+    ],
+
+    // Vue 2 specific paths
+    "paths": {
+      "@/*": ["../../src/*"],
+      "@commons/*": ["../*"],
+      "@components/*": ["../components/*"],
+      "@ui/*": ["../ui/*"],
+      "@packages/*": ["../../packages/*"],
+      "@types/*": ["../../types/*"],
+      "vue": ["node_modules/vue/types/index.d.ts"]
+    },
+
+    // Less strict for Vue 2 compatibility
+    "exactOptionalPropertyTypes": false,
+    "noImplicitReturns": false
+  },
+  "include": [
+    "../../src/**/*",
+    "../../packages/vue2/**/*",
+    "../../commons/**/*",
+    "../../types/**/*",
+    "../../*.ts",
+    "../../*.vue"
+  ],
+  "vueCompilerOptions": {
+    "target": 3,
+    "extensions": [".vue"],
+    "strictTemplates": false
+  }
+}

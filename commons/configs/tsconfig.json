@@ -1,0 +1,93 @@
+{
+  "compilerOptions": {
+    // Environment setup & latest features
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "target": "ESNext",
+    "module": "Preserve",
+    "moduleDetection": "force",
+    "jsx": "preserve",
+    "allowJs": true,
+
+    // Bundler mode
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+    "isolatedModules": true,
+
+    // Path mapping for microfrontends
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["../../src/*"],
+      "@commons/*": ["../*"],
+      "@components/*": ["../components/*"],
+      "@ui/*": ["../ui/*"],
+      "@packages/*": ["../../packages/*"],
+      "@types/*": ["../../types/*"]
+    },
+
+    // Type definitions
+    "types": [
+      "vite/client",
+      "vue"
+    ],
+
+    // Ignore deprecation warnings for compatibility
+    "ignoreDeprecations": "6.0",
+
+    // Best practices
+    "strict": true,
+    "skipLibCheck": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": false,
+
+    // Vue specific options
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true,
+
+    // Emit options
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": true,
+
+    // Some stricter flags (configurable by extending configs)
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    
+    // Module Federation compatibility
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+
+    // Performance optimizations
+    "incremental": true,
+    "tsBuildInfoFile": "node_modules/.tmp/tsconfig.tsbuildinfo"
+  },
+  "include": [
+    "../../src/**/*",
+    "../../packages/**/*",
+    "../../commons/**/*",
+    "../../types/**/*",
+    "../../*.ts",
+    "../../*.vue"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "coverage",
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "**/*.e2e.ts"
+  ],
+  "vueCompilerOptions": {
+    "target": 3.5,
+    "extensions": [".vue"],
+    "strictTemplates": true
+  }
+}

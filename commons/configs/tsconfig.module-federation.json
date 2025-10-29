@@ -1,0 +1,61 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    // Module Federation specific settings
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    
+    // Enhanced types for Module Federation
+    "types": [
+      "vite/client",
+      "vue",
+      "@module-federation/runtime/types"
+    ],
+
+    // Module Federation path mapping
+    "paths": {
+      "@/*": ["../../src/*"],
+      "@commons/*": ["../*"],
+      "@components/*": ["../components/*"],
+      "@ui/*": ["../ui/*"],
+      "@packages/*": ["../../packages/*"],
+      "@types/*": ["../../types/*"],
+      "@mf/*": ["../../mf-types/*"],
+      "shell/*": ["../../types/remotes/shell/*"],
+      "utils/*": ["../../types/remotes/utils/*"]
+    },
+
+    // Strict settings for better Module Federation compatibility
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+
+    // Module Federation requires these
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowJs": true,
+    "checkJs": false
+  },
+  "include": [
+    "../../src/**/*",
+    "../../packages/**/*",
+    "../../commons/**/*",
+    "../../types/**/*",
+    "../../mf-types/**/*",
+    "../../*.ts",
+    "../../*.vue",
+    "../../remoteTypes.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "coverage"
+  ]
+}

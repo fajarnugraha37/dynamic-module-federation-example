@@ -1,0 +1,21 @@
+{
+  "name": "@packages/vue3",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun run ./index.ts --watch"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "qiankun": "^2.10.16",
+    "vue": "^3.5.22",
+    "vue-router": "^4.6.3",
+    "vuex": "^4.1.0"
+  }
+}

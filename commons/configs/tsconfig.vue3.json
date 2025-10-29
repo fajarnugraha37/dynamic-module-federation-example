@@ -1,0 +1,54 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    // Vue 3 specific overrides
+    "jsx": "preserve",
+    "lib": ["ESNext", "DOM", "DOM.Iterable", "WebWorker"],
+    "target": "ESNext",
+    
+    // Vue 3 types
+    "types": [
+      "vite/client",
+      "vue/ref-macros"
+    ],
+
+    // Enhanced path mapping for Vue 3
+    "paths": {
+      "@/*": ["../../src/*"],
+      "@commons/*": ["../*"],
+      "@components/*": ["../components/*"],
+      "@ui/*": ["../ui/*"],
+      "@packages/*": ["../../packages/*"],
+      "@types/*": ["../../types/*"],
+      "#app": ["../../src/main.ts"],
+      "#components": ["../../src/components/index.ts"],
+      "#composables": ["../../src/composables/index.ts"],
+      "#stores": ["../../src/stores/index.ts"],
+      "#utils": ["../../src/utils/index.ts"]
+    },
+
+    // Vue 3 strict mode
+    "exactOptionalPropertyTypes": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+
+    // Composition API support
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "../../src/**/*",
+    "../../packages/vue3/**/*",
+    "../../commons/**/*",
+    "../../types/**/*",
+    "../../*.ts",
+    "../../*.vue",
+    "../../env.d.ts"
+  ],
+  "vueCompilerOptions": {
+    "target": 3.5,
+    "extensions": [".vue"],
+    "strictTemplates": true
+  }
+}
