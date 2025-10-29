@@ -3,6 +3,15 @@
   "module": "index.ts",
   "type": "module",
   "private": true,
+  "exports": {
+    "./assets/base.css": "./assets/base.css",
+    "./assets/main.css": "./assets/main.css",
+    "./style/index.less": "./style/index.less",
+    "./style/mixin.less": "./style/mixin.less",
+    "./style/normalize.css": "./style/normalize.css",
+    "./style/reset.css": "./style/reset.css",
+    "./style/variables.less": "./style/variables.less"
+  },
   "dependencies": {
     "@commons/configs": "workspace:*",
     "@commons/components": "workspace:*",

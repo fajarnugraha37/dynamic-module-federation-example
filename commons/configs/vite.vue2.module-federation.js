@@ -6,6 +6,8 @@ import legacy from '@vitejs/plugin-legacy'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import { compression } from 'vite-plugin-compression2'
 
+const __dirname = import.meta.dirname;
+
 export const viteVue2ConfigModuleFederation = defineConfig({
   plugins: [
     // Vue 2 support

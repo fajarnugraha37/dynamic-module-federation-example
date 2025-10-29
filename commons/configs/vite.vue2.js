@@ -4,6 +4,8 @@ import { resolve } from 'path'
 import legacy from '@vitejs/plugin-legacy'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import { compression } from 'vite-plugin-compression2'
+import autoprefixer from 'autoprefixer'
+const __dirname = import.meta.dirname;
 
 export const viteVue2Config = defineConfig({
   plugins: [
@@ -150,7 +152,7 @@ export const viteVue2Config = defineConfig({
     },
     postcss: {
       plugins: [
-        require('autoprefixer')({
+        autoprefixer({
           overrideBrowserslist: [
             '> 1%',
             'last 2 versions',

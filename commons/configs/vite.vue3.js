@@ -6,6 +6,8 @@ import { createHtmlPlugin } from 'vite-plugin-html'
 import { compression } from 'vite-plugin-compression2'
 import { VitePWA } from 'vite-plugin-pwa'
 
+const __dirname = import.meta.dirname;
+
 export const viteVue3Config = defineConfig({
   plugins: [
     // Vue 3 support

@@ -7,6 +7,8 @@ import { visualizer } from 'rollup-plugin-visualizer'
 import { compression } from 'vite-plugin-compression2'
 import { federation } from '@module-federation/vite'
 
+const __dirname = import.meta.dirname;
+
 export const viteConfig = defineConfig({
     plugins: [
         // Vue 3 support

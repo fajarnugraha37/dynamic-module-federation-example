@@ -8,6 +8,8 @@ import { compression } from 'vite-plugin-compression2'
 import { VitePWA } from 'vite-plugin-pwa'
 import { visualizer } from 'rollup-plugin-visualizer'
 
+const __dirname = import.meta.dirname;
+
 export const viteVue3ConfigModuleFederation = defineConfig({
   plugins: [
     // Vue 3 support
