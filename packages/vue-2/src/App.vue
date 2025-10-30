@@ -2,6 +2,17 @@
 import svg from '@commons/ui/assets/logo.svg';
 export default {
     name: 'App',
+    methods: {
+        increment() {
+            this.$store.commit('increment');
+        },
+        decrement() {
+            this.$store.commit('decrement');
+        },
+        reset() {
+            this.$store.commit('reset');
+        }
+    },
     data() {
         return {
             svg,
@@ -18,15 +29,19 @@ export default {
             <div class="wrapper">
                 <div class="greetings">
                     <h3>
-                        This is Vue 2 application powered by
+                        This is Vue 2 application powered by {{ this.$store.state.count }} items!
                         <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
                         <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 2</a>.
                     </h3>
                 </div>
 
                 <nav>
+                    <a href="#" v-on:click="increment()">Increment</a>
+                    <a href="#" v-on:click="decrement()">Decrement</a>
+                    <a href="#" v-on:click="reset()">Reset</a>
                     <a href="/">Home</a>
-                    <a href="/pinia">Pinia</a>
+                    <a href="/vue-2">Vue 2</a>
+                    <a href="/vue-3">Vue 3</a>
                 </nav>
             </div>
         </header>

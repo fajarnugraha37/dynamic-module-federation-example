@@ -1,11 +1,24 @@
 <script>
 import svg from '@commons/ui/assets/logo.svg';
+import { useCounterStore } from '@commons/components/stores.pinia';
 export default {
     name: 'App',
     data() {
         return {
             svg,
+            counterStore: useCounterStore(),
         };
+    },
+    methods: {
+        increment() {
+            this.counterStore.increment();
+        },
+        decrement() {
+            this.counterStore.decrement();
+        },
+        reset() {
+            this.counterStore.reset();
+        },
     },
 };
 </script>
@@ -18,15 +31,19 @@ export default {
             <div class="wrapper">
                 <div class="greetings">
                     <h3>
-                        This is Vue 3 application powered by
+                        This is Vue 3 application powered by {{ counterStore.count }} items!
                         <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
                         <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
                     </h3>
                 </div>
 
                 <nav>
+                    <a href="#" v-on:click="increment()">Increment</a>
+                    <a href="#" v-on:click="decrement()">Decrement</a>
+                    <a href="#" v-on:click="reset()">Reset</a>
                     <a href="/">Home</a>
-                    <a href="/pinia">Pinia</a>
+                    <a href="/vue-2">Vue 2</a>
+                    <a href="/vue-3">Vue 3</a>
                 </nav>
             </div>
         </header>

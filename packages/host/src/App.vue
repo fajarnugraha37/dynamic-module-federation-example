@@ -1,10 +1,27 @@
 <script>
 import svg from '@commons/ui/assets/logo.svg';
-import JsonEditor from "./JsonEditor.vue";
+import JsonEditor from "@commons/components/atoms/JsonEditor.vue";
 export default {
     name: 'App',
-    components: { 
-        JsonEditor 
+    components: {
+        JsonEditor
+    },
+    mounted() {
+        // this.$store.registerModule('sample', sampleVuexStore);
+        for (let i = 0; i < 10; i++) {
+            this.$store.commit('increment');
+        }
+    },
+    methods: {
+        increment() {
+            this.$store.commit('increment');
+        },
+        decrement() {
+            this.$store.commit('decrement');
+        },
+        reset() {
+            this.$store.commit('reset');
+        }
     },
     data() {
         return {
@@ -30,20 +47,24 @@ export default {
             <div class="wrapper">
                 <div class="greetings">
                     <h3>
-                        You've successfully created a project with
+                        You've successfully created a project with {{ this.$store.state.count }} items!
                         <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
                         <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 2</a>.
                     </h3>
                     <nav>
+                        <a href="#" v-on:click="increment()">Increment</a>
+                        <a href="#" v-on:click="decrement()">Decrement</a>
+                        <a href="#" v-on:click="reset()">Reset</a>
                         <a href="/">Home</a>
-                        <a href="/pinia">Pinia</a>
+                        <a href="/vue-2">Vue 2</a>
+                        <a href="/vue-3">Vue 3</a>
                     </nav>
                 </div>
             </div>
         </header>
 
         <div class="editor-container">
-            <JsonEditor v-model="data" :editorOptions="{ theme: 'bootstrap5', iconlib: 'fontawesome5' }"/>
+            <JsonEditor v-model="data" :editorOptions="{ theme: 'bootstrap5', iconlib: 'fontawesome5' }" />
             <pre>{{ data }}</pre>
         </div>
     </body>
@@ -98,7 +119,7 @@ nav a:first-of-type {
     width: 100%;
 }
 
-.editor-container > * {
+.editor-container>* {
     flex: 1;
     min-width: 0;
 }

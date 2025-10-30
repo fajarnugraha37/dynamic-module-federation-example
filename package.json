@@ -19,7 +19,7 @@
     "copy:dist": "bash copy-dist.sh",
     "copy:dist:ps": "powershell -ExecutionPolicy Bypass -File copy-dist.ps1",
     "copy:dist:bat": "copy-dist.bat",
-    "serve": "bun run build:copy && serve"
+    "serve": "serve"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.1.0",
