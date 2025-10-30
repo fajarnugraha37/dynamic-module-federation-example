@@ -12,7 +12,11 @@
     "@commons/components": "workspace:*",
     "@commons/configs": "workspace:*",
     "@commons/ui": "workspace:*",
+    "@fortawesome/fontawesome-free": "^7.1.0",
     "@module-federation/vite": "^1.9.0",
+    "@vue/composition-api": "^1.7.2",
+    "bootstrap": "4",
+    "element-ui": "^2.15.14",
     "vue": "2.7.16",
     "vue-router": "2.8.1",
     "vuex": "3.6.2"

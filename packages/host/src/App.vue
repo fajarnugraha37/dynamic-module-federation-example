@@ -1,10 +1,21 @@
 <script>
 import svg from '@commons/ui/assets/logo.svg';
+import JsonEditor from "./JsonEditor.vue";
 export default {
     name: 'App',
+    components: { 
+        JsonEditor 
+    },
     data() {
         return {
             svg,
+            data: {
+                name: "fajar",
+                age: 29,
+                roles: ["admin", "editor"],
+                active: true,
+                profile: { city: "bandung", score: 9.5 }
+            }
         };
     },
 };
@@ -23,20 +34,17 @@ export default {
                         <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
                         <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 2</a>.
                     </h3>
+                    <nav>
+                        <a href="/">Home</a>
+                        <a href="/pinia">Pinia</a>
+                    </nav>
                 </div>
-
-                <nav>
-                    <a href="/">Home</a>
-                    <a href="/pinia">Pinia</a>
-                </nav>
             </div>
         </header>
 
-        <div class="container">
-
-            <h1 class="text-3xl font-bold underline">
-                Hello world!
-            </h1>
+        <div class="editor-container">
+            <JsonEditor v-model="data" :editorOptions="{ theme: 'bootstrap5', iconlib: 'fontawesome5' }"/>
+            <pre>{{ data }}</pre>
         </div>
     </body>
 </template>
@@ -77,21 +85,104 @@ nav a:first-of-type {
     border: 0;
 }
 
-@media (width >=1024px) {
-    header {
-        display: flex;
-        place-items: center;
-        padding-right: calc(var(--section-gap) / 2);
-    }
+.editor-container {
+    display: flex;
+    gap: 3rem;
+    padding: 3rem;
+    align-items: flex-start;
+    background: linear-gradient(to bottom, #ffffff, #f8fafc);
+    border-radius: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
 
+.editor-container > * {
+    flex: 1;
+    min-width: 0;
+}
+
+.editor-container pre {
+    margin: 0;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    color: #2d3748;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+    position: relative;
+    overflow: hidden;
+}
+
+.editor-container pre::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0.5rem 2rem;
+    background: #f7fafc;
+    border-bottom: 1px solid #e2e8f0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 0.875rem;
+    color: #4a5568;
+    font-weight: 500;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 2rem;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f0f4f8 0%, #edf2f7 100%);
+}
+
+.greetings {
+    padding: 2rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.greetings h3 {
+    color: #2d3748;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+.greetings a {
+    color: #4299e1;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.greetings a:hover {
+    color: #2b6cb0;
+    text-decoration: underline;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.wrapper {
+    width: 100%;
+}
+
+@media (width >=1024px) {
     .logo {
         margin: 0 2rem 0 0;
-    }
-
-    header .wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        place-items: flex-start;
     }
 
     nav {
