@@ -31,6 +31,12 @@ export const sampleVuexStore = (): VuexStore<any> => {
         increment(state: any) {
           state.count++;
         },
+        decrement(state: any) {
+          state.count--;
+        },
+        reset(state: any) {
+          state.count = 0;
+        },
       },
     });
   }
